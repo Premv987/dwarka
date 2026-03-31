@@ -8,6 +8,7 @@ import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react"
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 export function CartDrawer() {
   const { cart, isCartOpen, toggleCart, updateQuantity, removeFromCart } = useStore()
@@ -57,8 +58,8 @@ export function CartDrawer() {
                 {cart.map((item) => (
                   <div key={item.id} className="flex gap-4 p-4 rounded-xl bg-surface border border-white/5 hover:border-primary/20 transition-colors">
                     {item.image && (
-                      <div className="w-16 h-16 rounded-md overflow-hidden bg-muted flex-shrink-0">
-                        <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                      <div className="w-16 h-16 rounded-md overflow-hidden bg-muted flex-shrink-0 relative">
+                        <Image src={item.image} alt={item.name} fill sizes="64px" className="object-cover" />
                       </div>
                     )}
                     <div className="flex-1 flex flex-col justify-between">

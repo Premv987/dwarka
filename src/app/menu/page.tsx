@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { menuData, menuCategories, Category, MenuItem } from '@/data/menu'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -106,10 +107,12 @@ export default function MenuPage() {
                 >
                   <Card className="h-full bg-card/40 backdrop-blur-md border border-white/5 hover:border-primary/40 hover:shadow-xl transition-all group overflow-hidden flex flex-col">
                     <div className="relative h-48 w-full overflow-hidden">
-                      <img 
+                      <Image 
                         src={item.image} 
                         alt={item.name} 
-                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute top-2 left-2 flex flex-col gap-2">
                         {item.isBestseller && (

@@ -2,6 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 const bestsellers = [
@@ -37,7 +38,7 @@ export function Bestsellers() {
               <Card className="overflow-hidden bg-card/50 backdrop-blur-md border border-white/5 hover:border-primary/30 hover:shadow-2xl transition-all duration-300 group cursor-pointer h-full">
                 <CardContent className="p-0 flex flex-col h-full">
                   <div className="relative h-48 w-full overflow-hidden">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+                    <Image src={item.image} alt={item.name} fill className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                     <div className="absolute top-2 right-2 bg-background/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-primary border border-primary/20">
                       Bestseller
                     </div>

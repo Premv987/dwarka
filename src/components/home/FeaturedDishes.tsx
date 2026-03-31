@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const featuredDishes = [
   {
@@ -69,11 +70,12 @@ export function FeaturedDishes() {
                   <Card className="bg-card/40 backdrop-blur-xl border-primary/20 overflow-hidden hover:-translate-y-2 transition-transform duration-300">
                     <CardContent className="p-0">
                       <div className="relative h-64 w-full overflow-hidden">
-                        {/* Using img tag to avoid next/image domain config errors for pure prototypes */}
-                        <img 
+                        <Image 
                           src={dish.image} 
                           alt={dish.name}
-                          className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-500"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover transform hover:scale-105 transition-transform duration-500"
                         />
                       </div>
                       <div className="p-6">

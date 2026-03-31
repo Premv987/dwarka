@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
 import { Clock, CalendarCheck } from "lucide-react"
+import Image from "next/image"
 
 export function SpecialOffers() {
   const [timeLeft, setTimeLeft] = useState({ hours: 5, minutes: 45, seconds: 30 })
@@ -80,10 +81,12 @@ export function SpecialOffers() {
           transition={{ delay: 0.2 }}
           className="relative rounded-3xl overflow-hidden h-80 flex items-center shadow-lg"
         >
-          <img 
+          <Image 
             src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2098&auto=format&fit=crop" 
             alt="Premium Party Hall" 
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
           
