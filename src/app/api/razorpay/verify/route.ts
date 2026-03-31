@@ -21,10 +21,10 @@ export async function POST(request: Request) {
       // Signature mismatch
       return NextResponse.json({ verified: false, error: 'Invalid Payment Signature' }, { status: 400 })
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error verifying Razorpay payment:', error)
     return NextResponse.json(
-      { error: error.message || 'Internal Server Error' },
+      { error: error instanceof Error ? error.message : 'Internal Server Error' },
       { status: 500 }
     )
   }

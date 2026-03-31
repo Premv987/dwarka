@@ -78,6 +78,7 @@ export default function OrderPage() {
         name: "Dwarka Veg Delight",
         description: "Premium Vegetarian Cuisine",
         order_id: data.order.id,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         handler: async function (response: any) {
           const verifyData = {
             razorpay_order_id: response.razorpay_order_id,
@@ -104,6 +105,7 @@ export default function OrderPage() {
         }
       }
       
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const paymentObject = new (window as any).Razorpay(options)
       paymentObject.open()
 

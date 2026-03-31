@@ -28,11 +28,12 @@ export async function POST(request: Request) {
     const order = await razorpay.orders.create(options)
     
     return NextResponse.json({ order }, { status: 200 })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error creating Razorpay order:', error)
     
     // Razorpay puts the actual error details inside error.error nested object
-    const razorpayError = error?.error?.description || error?.message || 'Internal Server Error'
+    const e = error as { message?: string, error?: { description?: string } }
+    const razorpayError = e?.error?.description || e?.message || 'Internal Server Error'
 
     return NextResponse.json(
       { error: razorpayError },

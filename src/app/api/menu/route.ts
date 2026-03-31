@@ -21,10 +21,10 @@ export async function GET() {
     if (dishError) throw dishError
 
     return NextResponse.json({ categories, dishes })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Menu API Error:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch menu' },
+      { error: error instanceof Error ? error.message : 'Failed to fetch menu' },
       { status: 500 }
     )
   }

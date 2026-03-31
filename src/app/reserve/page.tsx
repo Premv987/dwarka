@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { toast } from "sonner"
-import { CalendarDays, Clock, Users, Flame } from "lucide-react"
+import { CalendarDays, Users, Flame } from "lucide-react"
 
 export default function ReservePage() {
   const [guests, setGuests] = useState("2")
@@ -61,6 +61,7 @@ export default function ReservePage() {
       setTime("")
       setGuests("2")
       setIsPartyHall(false)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast.error(error.message || "Failed to submit reservation. Please try again.")
     } finally {
